@@ -8,7 +8,7 @@
           I'm frontend web developer.
         </p>
       </header>
-      <base-button text="My projects" color="dark" @click="toProjects" />
+      <BaseButton text="My projects" color="dark" @click="toProjects" />
     </section>
     <ul class="nav">
       <li
@@ -53,104 +53,70 @@
           </p>
         </div>
         <div class="about__skills">
-          <img class="about__skill" :title="skill" v-for="skill in skills" :key="skill" :src="require(`@/assets/icons/${skill}.svg`)" alt="skill" />
+          <img
+            class="about__skill"
+            :title="skill"
+            v-for="skill in skills"
+            :key="skill"
+            :src="require(`@/assets/icons/${skill}.svg`)"
+            alt="skill"
+          />
         </div>
       </div>
     </section>
 
     <a name="portfolio"></a>
-    <section class="portfolio" ref="portfolio">
-      Повседневная практика показывает, что консультация с широким активом
-      представляет собой интересный эксперимент проверки модели развития. С
-      другой стороны постоянное информационно-пропагандистское обеспечение нашей
-      деятельности представляет собой интересный эксперимент проверки
-      направлений прогрессивного развития. Таким образом постоянный
-      количественный рост и сфера нашей активности играет важную роль в
-      формировании систем массового участия. Задача организации, в особенности
-      же постоянное информационно-пропагандистское обеспечение нашей
-      деятельности влечет за собой процесс внедрения и модернизации новых
-      предложений. Разнообразный и богатый опыт постоянное
-      информационно-пропагандистское обеспечение нашей деятельности способствует
-      подготовки и реализации системы обучения кадров, соответствует насущным
-      потребностям. Идейные соображения высшего порядка, а также реализация
-      намеченных плановых заданий позволяет выполнять важные задания по
-      разработке дальнейших направлений развития. Разнообразный и богатый опыт
-      постоянное информационно-пропагандистское обеспечение нашей деятельности
-      способствует подготовки и реализации направлений прогрессивного развития.
-      Не следует, однако забывать, что сложившаяся структура организации
-      позволяет выполнять важные задания по разработке существенных финансовых и
-      административных условий. Повседневная практика показывает, что
-      консультация с широким активом представляет собой интересный эксперимент
-      проверки модели развития. С другой стороны постоянное
-      информационно-пропагандистское обеспечение нашей деятельности представляет
-      собой интересный эксперимент проверки направлений прогрессивного развития.
-      Таким образом постоянный количественный рост и сфера нашей активности
-      играет важную роль в формировании систем массового участия. Задача
-      организации, в особенности же постоянное информационно-пропагандистское
-      обеспечение нашей деятельности влечет за собой процесс внедрения и
-      модернизации новых предложений. Разнообразный и богатый опыт постоянное
-      информационно-пропагандистское обеспечение нашей деятельности способствует
-      подготовки и реализации системы обучения кадров, соответствует насущным
-      потребностям. Идейные соображения высшего порядка, а также реализация
-      намеченных плановых заданий позволяет выполнять важные задания по
-      разработке дальнейших направлений развития. Разнообразный и богатый опыт
-      постоянное информационно-пропагандистское обеспечение нашей деятельности
-      способствует подготовки и реализации направлений прогрессивного развития.
-      Не следует, однако забывать, что сложившаяся структура организации
-      позволяет выполнять важные задания по разработке существенных финансовых и
-      административных условий. Повседневная практика показывает, что
-      консультация с широким активом представляет собой интересный эксперимент
-      проверки модели развития. С другой стороны постоянное
-      информационно-пропагандистское обеспечение нашей деятельности представляет
-      собой интересный эксперимент проверки направлений прогрессивного развития.
-      Таким образом постоянный количественный рост и сфера нашей активности
-      играет важную роль в формировании систем массового участия. Задача
-      организации, в особенности же постоянное информационно-пропагандистское
-      обеспечение нашей деятельности влечет за собой процесс внедрения и
-      модернизации новых предложений. Разнообразный и богатый опыт постоянное
-      информационно-пропагандистское обеспечение нашей деятельности способствует
-      подготовки и реализации системы обучения кадров, соответствует насущным
-      потребностям. Идейные соображения высшего порядка, а также реализация
-      намеченных плановых заданий позволяет выполнять важные задания по
-      разработке дальнейших направлений развития. Разнообразный и богатый опыт
-      постоянное информационно-пропагандистское обеспечение нашей деятельности
-      способствует подготовки и реализации направлений прогрессивного развития.
-      Не следует, однако забывать, что сложившаяся структура организации
-      позволяет выполнять важные задания по разработке существенных финансовых и
-      административных условий. Повседневная практика показывает, что
-      консультация с широким активом представляет собой интересный эксперимент
-      проверки модели развития. С другой стороны постоянное
-      информационно-пропагандистское обеспечение нашей деятельности представляет
-      собой интересный эксперимент проверки направлений прогрессивного развития.
-      Таким образом постоянный количественный рост и сфера нашей активности
-      играет важную роль в формировании систем массового участия. Задача
-      организации, в особенности же постоянное информационно-пропагандистское
-      обеспечение нашей деятельности влечет за собой процесс внедрения и
-      модернизации новых предложений. Разнообразный и богатый опыт постоянное
-      информационно-пропагандистское обеспечение нашей деятельности способствует
-      подготовки и реализации системы обучения кадров, соответствует насущным
-      потребностям. Идейные соображения высшего порядка, а также реализация
-      намеченных плановых заданий позволяет выполнять важные задания по
-      разработке дальнейших направлений развития. Разнообразный и богатый опыт
-      постоянное информационно-пропагандистское обеспечение нашей деятельности
-      способствует подготовки и реализации направлений прогрессивного развития.
-      Не следует, однако забывать, что сложившаяся структура организации
-      позволяет выполнять важные задания по разработке существенных финансовых и
-      административных условий.
+    <section class="portfolio">
+      <header class="portfolio__header header">Projects</header>
+      <div class="portfolio__projects">
+        <div
+          class="portfolio__project project"
+          v-for="project in projects"
+          :key="project.title"
+        >
+          <img
+            class="project__image"
+            v-if="project.medias.length > 0"
+            :src="require(`@/assets/img/${project.medias[0]}.jpg`)"
+            alt="project"
+          />
+          <div class="project__info">
+            <p class="project__name">{{ project.title }}</p>
+            <p class="project__stack">{{ project.stack }}</p>
+            <BaseButton
+              text="View more"
+              color="light"
+              @click="openModal(project)"
+            />
+          </div>
+        </div>
+        <Modal
+          :project="currentProject"
+          @click="closeModal"
+          :class="{ none: !isModalOpened }"
+        />
+      </div>
     </section>
+
+    
   </div>
 </template>
 
 <script>
 import BaseButton from '@/components/BaseButton.vue'
+import Modal from '@/components/Modal.vue'
+
 export default {
   name: 'IndexPage',
   components: {
     BaseButton,
+    Modal,
   },
   data() {
     return {
       activeNav: 'home',
+      isModalOpened: false,
+      currentProject: null,
     }
   },
   mounted() {
@@ -198,6 +164,73 @@ export default {
         'photoshop',
       ]
     },
+    projects() {
+      return [
+        {
+          title: 'WorkQuest',
+          stack: 'Nuxt, Web3',
+          subtitle: 'marketplace',
+          description:
+            'Global end-to-end jobs marketplace, powered on smart-contracts',
+          medias: ['wq1', 'wq2', 'wq3', 'wq4'],
+          github: 'https://github.com/WorkQuest',
+          site: 'https://workquest.co/',
+        },
+         {
+          title: 'Invest',
+          stack: 'Nuxt, TS, Web3',
+          subtitle: 'Invest platform',
+          description: 'Invest platform with different patterns for investment, powered on smart-contracts',
+          medias: ['in1'],
+        },
+         {
+          title: 'ArtCrypt',
+          stack: 'Nuxt, Web3',
+          subtitle: 'marketplace',
+          description: 'The eco-friendly NFT marketplace, based on Binance Smart Chain',
+          medias: ['ac1'],
+        },
+        {
+          title: 'Crypto wallet',
+          stack: 'Vue, Web3',
+          subtitle: 'wallet',
+          description: 'Wallet for basic BC actions',
+          medias: ['wallet1', 'wallet2'],
+        },
+        {
+          title: 'Smart Academy Management',
+          stack: 'Vue',
+          subtitle: 'CRM',
+          description: 'CRM for employees of Smart academy - MVP',
+          medias: ['sam', 'sam1', 'sam2'],
+        },
+        {
+          title: 'StarWars',
+          stack: 'Vue, Vuetify',
+          subtitle: 'Viewer',
+
+          description: 'StarWars heroes with adding in favorites and search',
+          medias: ['sw1'],
+          github: 'https://github.com/Maiev93/StarWars-Vue.js',
+        },
+        {
+          title: 'Virtual piano',
+          stack: 'JS',
+          subtitle: 'entertainment app',
+          description: "Let's try virtual piano!",
+          medias: ['vp1'],
+          site: 'https://rolling-scopes-school.github.io/maiev93-JSFE2021Q1/virtual-piano/',
+        },
+        {
+          title: 'Simon Game',
+          stack: 'Vue',
+          subtitle: 'game',
+          description: 'A simple game for memory training',
+          medias: ['sg1'],
+          github: 'https://github.com/Maiev93/Simon-game',
+        },
+      ]
+    },
   },
   methods: {
     setActiveNav(nav) {
@@ -217,7 +250,13 @@ export default {
     },
     toProjects() {
       this.$refs.portfolio.scrollIntoView()
-      console.log('ref', this.$refs.portfolio)
+    },
+    openModal(project) {
+      this.currentProject = project
+      this.isModalOpened = true
+    },
+    closeModal() {
+      this.isModalOpened = false
     },
   },
 }
@@ -225,10 +264,9 @@ export default {
 
 <style lang="scss" scoped>
 .home {
-  font-family: 'GothamProMedium', sans-serif;
+  @include text-simple;
   color: $white;
   font-size: 43px;
-  line-height: 48px;
   background: $black700;
   background-image: url(https://i.gifer.com/2iiH.gif);
   height: 100vh;
@@ -241,6 +279,7 @@ export default {
     justify-content: center;
     align-items: center;
     margin-bottom: 10px;
+    line-height: 48px;
   }
   &__text {
     max-width: 50%;
@@ -251,7 +290,8 @@ export default {
   }
 }
 .nav {
-  font-family: 'GothamProMedium', sans-serif;
+  @include text-simple;
+  @include normal-font-size;
   background: $black700;
   display: flex;
   align-items: center;
@@ -273,13 +313,14 @@ export default {
 }
 
 .about {
-  font-family: 'GothamProMedium', sans-serif;
+  @include text-simple;
+  @include normal-font-size;
   color: $black700;
-  font-size: 16px;
-  line-height: 24px;
+  padding: 100px 20px;
   &__card {
     display: flex;
     justify-content: space-around;
+    max-width: 1200px;
   }
   &__image {
     width: 300px;
@@ -301,7 +342,7 @@ export default {
     align-items: center;
     margin: 40px 20px;
   }
-  &__me{
+  &__me {
     flex-basis: 60%;
     display: flex;
     flex-direction: column;
@@ -318,7 +359,49 @@ export default {
     margin: 0 auto;
   }
 }
-
+.portfolio {
+  @include text-simple;
+  @include normal-font-size;
+  color: $black700;
+  background: $lightGray;
+  padding: 100px 20px;
+  &__projects {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 390px);
+    justify-content: center;
+  }
+}
+.project {
+  position: relative;
+  &__image {
+    width: 390px;
+    height: 300px;
+    object-fit: cover;
+    margin: 0;
+  }
+  &__info {
+    position: absolute;
+    top: 0;
+    background: $white;
+    width: 390px;
+    height: 300px;
+    text-align: center;
+    padding: 70px;
+    opacity: 0;
+    &:hover {
+      opacity: 0.9;
+      transition: all 500ms;
+    }
+  }
+  &__name {
+    font-weight: bold;
+    font-size: 24px;
+  }
+  &__stack {
+    color: $darkTurquoise;
+    margin-bottom: 20px;
+  }
+}
 .plus {
   margin: 20px;
   max-width: 310px;
@@ -329,9 +412,10 @@ export default {
 }
 .header {
   font-size: 40px;
-  width: 140px;
   padding: 10px;
-  margin: 40px auto;
+  margin: 40px 0;
+  text-transform: uppercase;
+  text-align: center;
 }
 .icon {
   font-size: 53px;
@@ -341,5 +425,8 @@ export default {
   height: 95px;
   padding: 20px;
   border-radius: 50%;
+}
+.none {
+  display: none;
 }
 </style>

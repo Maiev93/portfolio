@@ -38,6 +38,7 @@ export default {
   buildModules: [
     // https://go.nuxtjs.dev/eslint
     '@nuxtjs/eslint-module',
+    'vue-ssr-carousel/nuxt',
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules

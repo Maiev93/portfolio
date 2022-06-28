@@ -1,11 +1,18 @@
 <template>
- <div>
-   <button 
-    @click="$emit('click')" 
-    class="button" :class="{'button__dark': color === 'dark', 'button__light': color === 'light'}">
+  <div>
+    <a
+      v-if="link !== ''"
+      class="button"
+      :class="btnClass"
+      :href="link"
+      target="_blank"
+    >
       {{ text }}
-   </button>
- </div>
+    </a>
+    <button v-else @click="$emit('click')" class="button" :class="btnClass">
+      {{ text }}
+    </button>
+  </div>
 </template>
 
 <script>
@@ -16,20 +23,36 @@ export default {
       type: String,
       default: '',
     },
+    link: {
+      type: String,
+      default: '',
+    },
     color: {
       type: String,
       default: '',
     },
-  }
+  },
+  computed: {
+    btnClass() {
+      const { color } = this
+      return [
+        { button_light: color === 'light' },
+        { button_dark: color === 'dark' },
+        { button_borderless: color === 'borderless' },
+        { button_black: color === 'black' },
+      ]
+    },
+  },
 }
 </script>
 
 <style lang="scss" scoped>
 .button {
   font-size: 20px;
-  padding: 0 10px;
+  padding: 10px;
   border-radius: 10px;
-  &__dark {
+  text-decoration: none;
+  &_dark {
     border: 3px solid $white;
     color: $white;
     transition: all 500ms;
@@ -38,12 +61,34 @@ export default {
       border-color: $darkTurquoise;
     }
   }
-  &__light {
+  &_light {
     border: 3px solid $darkTurquoise;
     color: $black700;
+    transition: all 500ms;
+    &:hover {
+      color: $white;
+      background: $darkTurquoise;
+    }
   }
-  &::after {
-    content: "→";
+  &_borderless {
+    border: none;
+    color: $white;
+    background: $darkTurquoise;
+    transition: all 500ms;
+    &:hover {
+      color: $darkTurquoise;
+      background: $white;
+    }
+  }
+  &_black {
+    border: none;
+    color: $white;
+    background: $black700;
+    transition: all 500ms;
+    &:hover {
+      color: $black700;
+      background: $white;
+    }
   }
 }
 </style>

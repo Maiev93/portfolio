@@ -65,7 +65,7 @@
       </div>
     </section>
 
-    <a name="portfolio"></a>
+    <a name="portfolio" ref="portfolio"></a>
     <section class="portfolio">
       <header class="portfolio__header header">Projects</header>
       <div class="portfolio__projects">
@@ -98,7 +98,10 @@
       </div>
     </section>
 
-    
+    <a name="contact"></a>
+    <section class="contact">
+
+    </section>
   </div>
 </template>
 
@@ -228,6 +231,15 @@ export default {
           description: 'A simple game for memory training',
           medias: ['sg1'],
           github: 'https://github.com/Maiev93/Simon-game',
+        },
+        {
+          title: 'ToDo list',
+          stack: 'JS',
+          subtitle: 'planner',
+          description: "Just a planner with create, edit, delete items",
+          medias: ['tdl1'],
+          site: 'https://maiev93.github.io/clean-code-s1e1/',
+          github: 'https://github.com/Maiev93/clean-code-s1e1',
         },
       ]
     },

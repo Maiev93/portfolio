@@ -1,18 +1,32 @@
 <template>
   <div class="modal-wrapper" v-if="project">
     <div class="modal">
-      <ssr-carousel loop show-arrows>
-        <div class="slide" v-for="media in project.medias" :key="media">
+      <div class="slides">
+        <div class="slide" v-for="(media, index) in project.medias" :key="media">
           <img
-            class="modal__image"
+            class="slide__Slide none"
+            :class="{block: activeSlide === index + 1}"
             :src="require(`@/assets/img/${media}.jpg`)"
             alt="project"
           />
         </div>
-      </ssr-carousel>
+        <a v-if="project.medias.length > 1" class="prev" @click="plusSlides(-1)">&#10094;</a>
+        <a v-if="project.medias.length > 1" class="next" @click="plusSlides(1)">&#10095;</a>
+      </div>
+      <!-- <ssr-carousel loop show-arrows>
+        <div class="slide" v-for="media in project.medias" :key="media">
+          <img
+            class="modal__Slide"
+            :src="require(`@/assets/img/${media}.jpg`)"
+            alt="project"
+          />
+        </div>
+      </ssr-carousel> -->
       <div class="modal__info">
         <h5 class="modal__title">{{ project.title }}</h5>
-        <p v-if="project.subtitle" class="modal__subtitle">{{ project.subtitle }}</p>
+        <p v-if="project.subtitle" class="modal__subtitle">
+          {{ project.subtitle }}
+        </p>
         <p class="modal__description">{{ project.description }}</p>
         <div class="modal__controllers">
           <div class="modal__buttons">
@@ -31,7 +45,7 @@
               color="black"
             />
           </div>
-          <div class="modal__close" @click="$emit('click')">🞫</div>
+          <div class="modal__close" @click="refreshActiveSlide">🞫</div>
         </div>
       </div>
     </div>
@@ -39,8 +53,6 @@
 </template>
 
 <script>
-import SsrCarousel from 'vue-ssr-carousel'
-import ssrCarouselCss from 'vue-ssr-carousel/index.css'
 import BaseButton from '@/components/BaseButton.vue'
 
 export default {
@@ -54,6 +66,25 @@ export default {
   components: {
     BaseButton,
   },
+  data() {
+    return {
+      activeSlide: 1,
+    }
+  },
+  methods: {
+    plusSlides(index) {
+      this.loopSlides(this.activeSlide += index);
+    },
+    loopSlides(index) {
+      const {project} = this;
+      if (index > project.medias.length) {this.activeSlide = 1};
+      if (index < 1) {this.activeSlide = project.medias.length};
+    },
+    refreshActiveSlide() {
+      this.activeSlide = 1;
+      this.$emit("click");
+    }
+  }
 }
 </script>
 
@@ -78,11 +109,6 @@ export default {
   @include normal-font-size;
   color: $black700;
   font-size: 14px;
-  &__image {
-    width: 700px;
-    height: 450px;
-    object-fit: cover;
-  }
   &__info {
     padding: 30px;
   }
@@ -113,5 +139,45 @@ export default {
     cursor: pointer;
     font-size: 25px;
   }
+}
+.slides {
+  position: relative;
+}
+.slide {
+   &__Slide {
+    width: 700px;
+    height: 450px;
+    object-fit: cover;
+  }
+}
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -50px;
+  color: $gray;
+  font-weight: bold;
+  font-size: 20px;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+.none {
+  display: none;
+}
+.block {
+  display: block;
 }
 </style>

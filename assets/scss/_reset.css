@@ -127,6 +127,10 @@ a:focus, button:focus, input:focus, textarea:focus {
   offset: none !important;
 }
 
+a {
+  text-decoration: none;
+}
+
 .custom-control-label {
   color: #20253b;
   font-family: 'Inter', sans-serif;

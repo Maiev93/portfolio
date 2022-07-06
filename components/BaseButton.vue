@@ -11,6 +11,7 @@
     </a>
     <button v-else @click="$emit('click')" class="button" :class="btnClass">
       {{ text }}
+      <slot></slot>
     </button>
   </div>
 </template>
@@ -90,5 +91,10 @@ export default {
       background: $white;
     }
   }
+  // &_up {
+  //   border: none;
+  //   color: $white;
+  //   background: $dar;
+  // }
 }
 </style>

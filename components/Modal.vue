@@ -13,15 +13,6 @@
         <a v-if="project.medias.length > 1" class="prev" @click="plusSlides(-1)">&#10094;</a>
         <a v-if="project.medias.length > 1" class="next" @click="plusSlides(1)">&#10095;</a>
       </div>
-      <!-- <ssr-carousel loop show-arrows>
-        <div class="slide" v-for="media in project.medias" :key="media">
-          <img
-            class="modal__Slide"
-            :src="require(`@/assets/img/${media}.jpg`)"
-            alt="project"
-          />
-        </div>
-      </ssr-carousel> -->
       <div class="modal__info">
         <h5 class="modal__title">{{ project.title }}</h5>
         <p v-if="project.subtitle" class="modal__subtitle">

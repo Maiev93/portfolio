@@ -100,7 +100,16 @@
 
     <a name="contact"></a>
     <section class="contact">
-
+      <header class="contact__header header">Contact</header>
+      <ul class="contact__medias">
+        <li v-for="media in medias" :key="media.icon" class="contact__media">
+          <a class="contact__link" target="_blank" :href="media.link"><span :class="media.icon" /></a>
+        </li>
+      </ul>
+      <BaseButton color="borderless">
+        <span @click="toTop">&#11165;</span>
+      </BaseButton>
+      <p class="contact__text">elena kalichkina <span class="contact__copy">© 2022</span></p>
     </section>
   </div>
 </template>
@@ -179,18 +188,20 @@ export default {
           github: 'https://github.com/WorkQuest',
           site: 'https://workquest.co/',
         },
-         {
+        {
           title: 'Invest',
           stack: 'Nuxt, TS, Web3',
           subtitle: 'Invest platform',
-          description: 'Invest platform with different patterns for investment, powered on smart-contracts',
+          description:
+            'Invest platform with different patterns for investment, powered on smart-contracts',
           medias: ['in1'],
         },
-         {
+        {
           title: 'ArtCrypt',
           stack: 'Nuxt, Web3',
           subtitle: 'marketplace',
-          description: 'The eco-friendly NFT marketplace, based on Binance Smart Chain',
+          description:
+            'The eco-friendly NFT marketplace, based on Binance Smart Chain',
           medias: ['ac1'],
         },
         {
@@ -236,10 +247,24 @@ export default {
           title: 'ToDo list',
           stack: 'JS',
           subtitle: 'planner',
-          description: "Just a planner with create, edit, delete items",
+          description: 'Just a planner with create, edit, delete items',
           medias: ['tdl1'],
           site: 'https://maiev93.github.io/clean-code-s1e1/',
           github: 'https://github.com/Maiev93/clean-code-s1e1',
+        },
+      ]
+    },
+    medias() {
+      return [
+        { icon: 'icon-telegram', link: 'https://t.me/Maiev' },
+        {
+          icon: 'icon-linkedin',
+          link: 'https://www.linkedin.com/in/elena-kalichkina-8b68a61b6/',
+        },
+        { icon: 'icon-github', link: 'https://github.com/Maiev93' },
+        {
+          icon: 'icon-envelop',
+          link: 'mailto:elena.kalichkina.rho@gmail.com',
         },
       ]
     },
@@ -269,6 +294,9 @@ export default {
     },
     closeModal() {
       this.isModalOpened = false
+    },
+    toTop() {
+      window.scrollTo(0, 0)
     },
   },
 }
@@ -315,7 +343,6 @@ export default {
   }
   &__a {
     color: $white;
-    text-decoration: none;
     text-transform: uppercase;
     font-size: 20px;
     &_active {
@@ -333,6 +360,7 @@ export default {
     display: flex;
     justify-content: space-around;
     max-width: 1200px;
+    margin: 0 auto;
   }
   &__image {
     width: 300px;
@@ -422,6 +450,38 @@ export default {
   justify-content: center;
   align-items: center;
 }
+
+.contact {
+  @include text-simple;
+  @include normal-font-size;
+  background: $black700;
+  color: $white;
+  padding: 50px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  &__medias {
+    display: flex;
+    justify-content: space-between;
+    width: 380px;
+    margin-bottom: 40px;
+  }
+  &__link {
+    color: $white;
+    font-size: 27px;
+  }
+  &__text {
+    margin-top: 40px;
+    font-size: 13px;
+    text-transform: uppercase;
+    color: $gray;
+  }
+  &__copy {
+    color: $darkTurquoise;
+  }
+}
+
 .header {
   font-size: 40px;
   padding: 10px;

@@ -338,6 +338,7 @@ export default {
   padding: 0 10%;
   position: sticky;
   top: 0px;
+  z-index: 2;
   &__item {
     margin: 10px 20px;
   }

@@ -9,3 +9,35 @@
     font-size: 16px;
     line-height: 24px;
 }
+  
+  @mixin _991 {
+    @media (max-width: 991px) {
+      @content;
+    }
+  }
+  
+  @mixin _767 {
+    @media (max-width: 767px) {
+      @content;
+    }
+  }
+  
+  @mixin _575 {
+    @media (max-width: 575px) {
+      @content;
+    }
+  }
+  
+  @mixin _480 {
+    @media (max-width: 480px) {
+      @content;
+    }
+  }
+  
+  @mixin _380 {
+    @media (max-width: 380px) {
+      @content;
+    }
+  }
+  
+  

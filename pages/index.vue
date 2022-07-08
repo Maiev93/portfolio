@@ -10,22 +10,42 @@
       </header>
       <BaseButton text="My projects" color="dark" @click="toProjects" />
     </section>
-    <ul class="nav">
-      <li
-        class="nav__item"
-        v-for="nav in navs"
-        :key="nav"
-        @click="setActiveNav(nav)"
-      >
-        <a
-          class="nav__a"
-          :class="{ nav__a_active: activeNav === nav }"
-          :href="`#${nav}`"
+    <section class="navigation">
+      <span class="navigation__more" @click="toggleMenu">&#65049;</span>
+      <ul class="nav" v-if="isMenuOpened">
+        <li
+          class="nav__item"
+          v-for="nav in navs"
+          :key="nav"
+          @click="setActiveNav(nav)"
         >
-          {{ nav }}
-        </a>
-      </li>
-    </ul>
+          <a
+            class="nav__a"
+            :class="{ nav__a_active: activeNav === nav }"
+            :href="`#${nav}`"
+          >
+            {{ nav }}
+          </a>
+        </li>
+      </ul>
+    </section>
+     <ul class="nav  nav_desc">
+        <li
+          class="nav__item"
+          v-for="nav in navs"
+          :key="nav"
+          @click="setActiveNav(nav)"
+        >
+          <a
+            class="nav__a"
+            :class="{ nav__a_active: activeNav === nav }"
+            :href="`#${nav}`"
+          >
+            {{ nav }}
+          </a>
+        </li>
+      </ul>
+
     <a name="about"></a>
     <section class="about">
       <header class="about__header header">About</header>
@@ -103,13 +123,17 @@
       <header class="contact__header header">Contact</header>
       <ul class="contact__medias">
         <li v-for="media in medias" :key="media.icon" class="contact__media">
-          <a class="contact__link" target="_blank" :href="media.link"><span :class="media.icon" /></a>
+          <a class="contact__link" target="_blank" :href="media.link"
+            ><span :class="media.icon"
+          /></a>
         </li>
       </ul>
       <BaseButton color="borderless">
         <span @click="toTop">&#11165;</span>
       </BaseButton>
-      <p class="contact__text">elena kalichkina <span class="contact__copy">© 2022</span></p>
+      <p class="contact__text">
+        elena kalichkina <span class="contact__copy">© 2022</span>
+      </p>
     </section>
   </div>
 </template>
@@ -127,6 +151,7 @@ export default {
   data() {
     return {
       activeNav: 'home',
+      isMenuOpened: false,
       isModalOpened: false,
       currentProject: null,
     }
@@ -298,6 +323,9 @@ export default {
     toTop() {
       window.scrollTo(0, 0)
     },
+    toggleMenu() {
+      this.isMenuOpened = !this.isMenuOpened
+    },
   },
 }
 </script>
@@ -327,6 +355,13 @@ export default {
     &_highlight {
       color: $darkTurquoise;
     }
+  }
+}
+.navigation {
+  background: $black700;
+  text-align: right;
+  &__more {
+    display: none;
   }
 }
 .nav {
@@ -415,7 +450,7 @@ export default {
 .project {
   position: relative;
   &__image {
-    width: 390px;
+    width: 360px;
     height: 300px;
     object-fit: cover;
     margin: 0;
@@ -498,6 +533,68 @@ export default {
   height: 95px;
   padding: 20px;
   border-radius: 50%;
+}
+
+@include _991 {
+  .about {
+    &__card {
+      display: grid;
+      justify-content: center;
+      align-items: center;
+      grid-template-columns: repeat(auto-fit, 373px);
+    }
+    &__body {
+      flex-direction: column;
+    }
+    &__me {
+      margin-bottom: 40px;
+    }
+  }
+}
+@include _767 {
+  .about {
+    &__card {
+      grid-template-columns: repeat(auto-fit, 310px);
+    }
+  }
+}
+@include _575 {
+  .home {
+    font-size: 41px;
+  }
+  .nav {
+    &_desc{
+      display: none;
+    }
+    padding: 0 2%;
+    align-items: baseline;
+    flex-direction: column;
+    position: absolute;
+    width: 100%;
+    top: 30px;
+    opacity: 0.8;
+  }
+  .navigation {
+    position: relative;
+    &__more {
+      display: block;
+      color: white;
+      font-size: 25px;
+      margin: 0 10px;
+    }
+  }
+}
+@include _480 {
+  .contact {
+    &__medias {
+      width: 320px;
+    }
+  }
+  .portfolio {
+    &__projects {
+      grid-template-columns: repeat(auto-fit, 360px);
+    }
+  }
 }
 .none {
   display: none;

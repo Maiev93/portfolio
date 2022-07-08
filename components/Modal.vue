@@ -2,16 +2,24 @@
   <div class="modal-wrapper" v-if="project">
     <div class="modal">
       <div class="slides">
-        <div class="slide" v-for="(media, index) in project.medias" :key="media">
+        <div
+          class="slide"
+          v-for="(media, index) in project.medias"
+          :key="media"
+        >
           <img
             class="slide__Slide none"
-            :class="{block: activeSlide === index + 1}"
+            :class="{ block: activeSlide === index + 1 }"
             :src="require(`@/assets/img/${media}.jpg`)"
             alt="project"
           />
         </div>
-        <a v-if="project.medias.length > 1" class="prev" @click="plusSlides(-1)">&#10094;</a>
-        <a v-if="project.medias.length > 1" class="next" @click="plusSlides(1)">&#10095;</a>
+        <a v-if="project.medias.length > 1" class="prev" @click="plusSlides(-1)"
+          >&#10094;</a
+        >
+        <a v-if="project.medias.length > 1" class="next" @click="plusSlides(1)"
+          >&#10095;</a
+        >
       </div>
       <div class="modal__info">
         <h5 class="modal__title">{{ project.title }}</h5>
@@ -64,18 +72,22 @@ export default {
   },
   methods: {
     plusSlides(index) {
-      this.loopSlides(this.activeSlide += index);
+      this.loopSlides((this.activeSlide += index))
     },
     loopSlides(index) {
-      const {project} = this;
-      if (index > project.medias.length) {this.activeSlide = 1};
-      if (index < 1) {this.activeSlide = project.medias.length};
+      const { project } = this
+      if (index > project.medias.length) {
+        this.activeSlide = 1
+      }
+      if (index < 1) {
+        this.activeSlide = project.medias.length
+      }
     },
     refreshActiveSlide() {
-      this.activeSlide = 1;
-      this.$emit("click");
-    }
-  }
+      this.activeSlide = 1
+      this.$emit('click')
+    },
+  },
 }
 </script>
 
@@ -135,7 +147,7 @@ export default {
   position: relative;
 }
 .slide {
-   &__Slide {
+  &__Slide {
     width: 700px;
     height: 450px;
     object-fit: cover;
@@ -164,6 +176,11 @@ export default {
 .prev:hover,
 .next:hover {
   background-color: rgba(0, 0, 0, 0.8);
+}
+@include _991 {
+  .modal-wrapper {
+    height: 110vh;
+  }
 }
 .none {
   display: none;

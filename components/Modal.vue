@@ -44,7 +44,7 @@
               color="black"
             />
           </div>
-          <div class="modal__close" @click="refreshActiveSlide">🞫</div>
+          <p class="modal__close icon-cross" @click="refreshActiveSlide"></p>
         </div>
       </div>
     </div>
@@ -179,7 +179,7 @@ export default {
 }
 @include _991 {
   .modal-wrapper {
-    height: 110vh;
+    height: 100vh;
   }
 }
 .none {

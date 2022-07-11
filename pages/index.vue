@@ -11,7 +11,7 @@
       <BaseButton text="My projects" color="dark" @click="toProjects" />
     </section>
     <section class="navigation">
-      <span class="navigation__more" @click="toggleMenu">&#65049;</span>
+      <span class="navigation__more icon-menu" @click="toggleMenu"></span>
       <ul class="nav" v-if="isMenuOpened">
         <li
           class="nav__item"
@@ -129,7 +129,7 @@
         </li>
       </ul>
       <BaseButton color="borderless">
-        <span @click="toTop">&#11165;</span>
+        <span class="icon-arrow-up" @click="toTop"></span>
       </BaseButton>
       <p class="contact__text">
         elena kalichkina <span class="contact__copy">© 2022</span>
@@ -459,7 +459,7 @@ export default {
     position: absolute;
     top: 0;
     background: $white;
-    width: 390px;
+    width: 360px;
     height: 300px;
     text-align: center;
     padding: 70px;
@@ -591,6 +591,7 @@ export default {
     }
   }
   .portfolio {
+    padding: 100px 10px;
     &__projects {
       grid-template-columns: repeat(auto-fit, 360px);
     }
